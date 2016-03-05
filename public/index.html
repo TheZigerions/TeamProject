@@ -9,7 +9,39 @@
     <script src="js/app.js" charset="utf-8"></script>
     <base href="/">
   </head>
+
   <body>
-  
+
+    <header>
+      <h1>UrbanYoda Translator</h1>
+      <br/>
+      <h3>text goes here to explain the app</h3>
+    </header>
+
+    <div id= welcome>
+      <form ng-controller="FormController as formCtrl" ng-submit="formCtrl">
+        <input type="text" name="name" placeholder="enter your name" ng-model="formCtrl"><br/>
+        <input type="checkbox" name="over18" value="over18" /> over 18?<br/>
+        <input type="submit" value="submit" />
+      </form>
+
+      <h3>pick your favorite character</h3>
+      <select ng-controller"MainController as mainCtrl"> 
+      <!-- this will eventually populate from database add ng-repeat -->
+        <option value="yoda">Yoda</option>
+        <option value="chewbacca">Chebacca</option>
+        <option value="leia">Leia</option>
+        <option value="darth">Darth Vader</option>
+        <option value="r2d2">R2D2</option>
+      </select>
+      
+      <br/>
+    </div>
+
+    <div>
+
+    </div>
+
+
   </body>
 </html>
