@@ -21,11 +21,21 @@ app.use(express.static('public'));
 // CONTROLLERS
 ////////////////////
 
+
+
+var usersController = require("./controllers/usersController.js");
+app.use("/users", usersController);
+
+
+
+
+
+
 ////////////////////
 // LISTEN
 ////////////////////
 
-// mongoose.connect('mongodb://localhost:27017/urbanyoda');
+mongoose.connect('mongodb://localhost:27017/urbanyoda');
 
 db.once('open', function(){
   app.listen(port, function(){
