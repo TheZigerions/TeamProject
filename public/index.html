@@ -22,7 +22,7 @@
     <h3>enter your name, you will</h3>
       <form ng-controller="FormController as formCtrl" ng-submit="formCtrl">
         <input ng-model="formCtrl.formdata.name" type="text" placeholder="name" />
-        <input ng-model= "formCtrl.formdata.age" type="checkbox" name="over18" value="over 18" /> over 18?<br/>
+        <input ng-model= "formCtrl.formdata.age" type="checkbox" name="over18" value="over 18" /> over 18?
         <button>submit</button>
       </form>
 
@@ -51,8 +51,10 @@
       <h3>urban-yodafy this word</h3>
       <form ng-controller="FormController as formCtrl" ng-submit="formCtrl">
         <input ng-model="formCtrl.formdata.name" type="text" placeholder=" enter word" />
-        <button>submit</button>
+        <button>submit</button> 
       </form>
+        <textarea rows="4" cols="50">translation goes here</textarea><br/>
+        <button>save to favorites</button> 
     </section>
 
   </body>
