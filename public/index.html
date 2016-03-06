@@ -13,35 +13,47 @@
   <body>
 
     <header>
-      <h1>UrbanYoda Translator</h1>
+      <h1>UrbanYoda</h1>
       <br/>
-      <h3>text goes here to explain the app</h3>
+      <h3>enter a word we'll translate into urban yoda speak. hmmm.---need some urban yoda way to say this</h3>
     </header>
 
-    <div id= welcome>
+    <section id="welcome">
+    <h3>enter your name, you will</h3>
       <form ng-controller="FormController as formCtrl" ng-submit="formCtrl">
-        <input type="text" name="name" placeholder="enter your name" ng-model="formCtrl"><br/>
-        <input type="checkbox" name="over18" value="over18" /> over 18?<br/>
-        <input type="submit" value="submit" />
+        <input ng-model="formCtrl.formdata.name" type="text" placeholder="name" />
+        <input ng-model= "formCtrl.formdata.age" type="checkbox" name="over18" value="over 18" /> over 18?<br/>
+        <button>submit</button>
       </form>
 
-      <h3>pick your favorite character</h3>
+      <h3>your favorite character, you will select</h3>
       <select ng-controller"MainController as mainCtrl"> 
-      <!-- this will eventually populate from database add ng-repeat -->
+        <!-- this will eventually populate from database add ng-repeat -->
+        <!-- <div ng-controller="InfoController as info">
+        <option value="{{info.data.name}}"> {{info.data.name}}</img> -->
+        
         <option value="yoda">Yoda</option>
         <option value="chewbacca">Chebacca</option>
         <option value="leia">Leia</option>
         <option value="darth">Darth Vader</option>
         <option value="r2d2">R2D2</option>
       </select>
-      
       <br/>
-    </div>
+    </section>
+    <section id="character">
+      <section ng-if="info.data.name != null" ng-controller"MainController as mainCtrl"> 
+        <img ng-src="{{info.data.img}}"></img>
+      </section>
+      <img src= http://vignette4.wikia.nocookie.net/vsbattles/images/e/e7/Stormtrooper.png/revision/latest?cb=20150117214000>
+    </section>
 
-    <div>
-
-    </div>
-
+    <section id="translate">
+      <h3>urban-yodafy this word</h3>
+      <form ng-controller="FormController as formCtrl" ng-submit="formCtrl">
+        <input ng-model="formCtrl.formdata.name" type="text" placeholder=" enter word" />
+        <button>submit</button>
+      </form>
+    </section>
 
   </body>
 </html>
