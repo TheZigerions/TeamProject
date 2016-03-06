@@ -10,7 +10,7 @@ body {
 }
 
 header h1, header h3 {
-	color: red;
+	color: #e60000;
 }
 
 #welcome {
@@ -40,6 +40,10 @@ input {
 button {
 	margin: 1em;
 	box-shadow: 5px 5px 2px #424242;
+}
+
+button:hover {
+	transform: scale(1.1);
 }
 
 select {

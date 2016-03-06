@@ -2,14 +2,16 @@ var express = require("express");
 
 var router = express.Router();
 
-router.get("/seed", function(req, res){
+var Character = require('../models/character.js');
 
- //put the seed function from thom in this route
+// router.get("/seed", function(req, res){
+
+//  //put the seed function from thom in this route
 
 
  
 
-});
+// });
 
 
 

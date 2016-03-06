@@ -9,6 +9,8 @@ var mongoose = require('mongoose');
 var db = mongoose.connection;
 var port = process.env.PORT || 3000;
 
+mongoose.connect('mongodb://localhost:27017/urbanyoda');
+
 ////////////////////
 // MIDDLEWARE
 ////////////////////
@@ -26,7 +28,8 @@ app.use(express.static('public'));
 var usersController = require("./controllers/usersController.js");
 app.use("/users", usersController);
 
-
+var seedController = require('./controllers/seedController');
+app.use('/seed', seedController);
 
 
 
@@ -35,7 +38,7 @@ app.use("/users", usersController);
 // LISTEN
 ////////////////////
 
-mongoose.connect('mongodb://localhost:27017/urbanyoda');
+
 
 db.once('open', function(){
   app.listen(port, function(){
