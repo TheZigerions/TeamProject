@@ -9,19 +9,19 @@ var Character = require('../models/character.js');
 var newCharacter = [
 		{
 			name: 'Yoda',
-  			image: 'TBD'
+  			image: 'http://vignette2.wikia.nocookie.net/disney/images/9/95/Master_Yoda.png/revision/latest?cb=20151112212224'
 		}, {
 			name: 'Chewbaca',
-    	    img: 'TBD'
+    	    img: 'http://vignette3.wikia.nocookie.net/disney/images/d/da/TFA-Chewbacca-Fathead.png/revision/latest?cb=20160207022126'
 	  	}, {
 			name: 'Leia',
-    	    img: 'TBD'
+    	    img: 'http://vignette4.wikia.nocookie.net/disney/images/7/7f/Princess_Leia_render.png/revision/latest?cb=20151220170346'
 	  	}, {
 			name: 'Darth Vader',
-    	    img: 'TBD'
+    	    img: 'http://vignette3.wikia.nocookie.net/disney/images/d/df/Darth_Vader_Render.png/revision/latest?cb=20151222170300'
 	  	}, {
 			name: 'R2D2',
-	        img:'TBD'
+	        img:'ignette3.wikia.nocookie.net/disney/images/7/7c/R2-D2_Render.png/revision/latest?cb=20130314222826'
 		}
 ];
 
