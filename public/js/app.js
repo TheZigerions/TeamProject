@@ -5,6 +5,9 @@ app.controller("MainController", function(){
 
 });
 
+app.controller("ProfileController", function(){
+
+});
 
 app.controller("FormController", ['$http', function($http){
 
@@ -35,6 +38,7 @@ app.controller("FormController", ['$http', function($http){
           function(result){
             controller.secondResult = result.data;
             controller.showResult = true;
+            controller.word = undefined;
           },
           function(){
             console.log(err);

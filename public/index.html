@@ -10,7 +10,7 @@
     <base href="/">
   </head>
 
-  <body>
+  <body ng-controller"MainController as mainCtrl">
 
     <header>
       <h1>UrbanYoda</h1>
@@ -18,16 +18,16 @@
       <h3>enter a word we'll translate into urban yoda speak. hmmm.---need some urban yoda way to say this</h3>
     </header>
 
-    <section id="welcome">
-    <h3>enter your name, you will</h3>
-      <form ng-controller="FormController as formCtrl" ng-submit="formCtrl">
-        <input ng-model="formCtrl.formdata.name" type="text" placeholder="name" />
-        <input ng-model= "formCtrl.formdata.age" type="checkbox" name="over18" value="over 18" /> over 18?
+    <section ng-controller="ProfileController as profCtrl" id="welcome">
+      <h3>enter your name, you will</h3>
+      <form ng-submit="">
+        <input ng-model="profCtrl.name" type="text" placeholder="name" />
+        <input ng-model= "profCtrl.age" type="checkbox" name="over18" value="over 18" /> over 18?
         <button>submit</button>
       </form>
 
       <h3>your favorite character, you will select</h3>
-      <select ng-controller"MainController as mainCtrl">
+      <select>
         <!-- this will eventually populate from database add ng-repeat -->
         <!-- <div ng-controller="InfoController as info">
         <option value="{{info.data.name}}"> {{info.data.name}}</img> -->
@@ -41,16 +41,16 @@
       <br/>
     </section>
     <section id="character">
-      <section ng-if="info.data.name != null" ng-controller"MainController as mainCtrl">
+      <section ng-if="info.data.name != null">
         <img ng-src="{{info.data.img}}"></img>
       </section>
-      <img src= http://vignette4.wikia.nocookie.net/vsbattles/images/e/e7/Stormtrooper.png/revision/latest?cb=20150117214000>
+      <img src='http://vignette4.wikia.nocookie.net/vsbattles/images/e/e7/Stormtrooper.png/revision/latest?cb=20150117214000'>
     </section>
 
     <section ng-controller="FormController as formCtrl" id="translate">
       <h3>urban-yodafy this word</h3>
       <form ng-submit="formCtrl.yodafy()">
-        <input ng-model="formCtrl.word" type="text" placeholder=" enter word" />
+        <input name="word" ng-model="formCtrl.word" type="text" placeholder=" enter word" />
         <button>submit</button>
       </form>
         <!-- <textarea ng-if="formCtrl.showResult" rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
