@@ -1,9 +1,15 @@
 var app = angular.module('TranslateApp', []);
 
 
-app.controller("MainController", function(){
+app.controller("MainController",  ["$scope", function($scope){
+  var controller = this;
+  $scope.$on("Image", function(eventObj, image){
+    controller.image = image;
+    console.log("image received");
+  })
 
-});
+
+}]);
 
 app.controller("ProfileController", ["$scope", "$http", function($scope, $http){
  var controller = this;
@@ -13,17 +19,16 @@ app.controller("ProfileController", ["$scope", "$http", function($scope, $http){
   }).then(
     function(response) {
       controller.character = response.data;
-      console.log(response.data);
+      console.log(controller.character.image);
+      this.image = null;
+      this.sendImage = function(){
+        $scope.$emit("Image", this.data);
+        console.log("image emitted");
+      }
     }),
     function(){
       console.log("error");
     }
-
-    this.pickCharacter = function(){
-      console.log("CLICKED!");
-    }
-
-
 
 }]);
 
@@ -39,7 +44,7 @@ app.controller("FormController", ['$http', function($http){
       url: 'https://mashape-community-urban-dictionary.p.mashape.com/define?term='+this.word,
       method: 'GET',
       headers: {
-        "X-Mashape-Key": "juy7bjgBM0mshCN2pxiSnCwdHhTCp1Ml6cPjsnYjDWNlVeecII",
+        "X-Mashape-Key": "",
         "Accept": "text/plain"
       }
     }).then(
@@ -49,7 +54,7 @@ app.controller("FormController", ['$http', function($http){
           url: 'https://yoda.p.mashape.com/yoda?sentence='+controller.firstResult,
           method: 'GET',
           headers: {
-            "X-Mashape-Key": "juy7bjgBM0mshCN2pxiSnCwdHhTCp1Ml6cPjsnYjDWNlVeecII",
+            "X-Mashape-Key": "",
             "Accept": "text/plain"
           }
         }).then(
