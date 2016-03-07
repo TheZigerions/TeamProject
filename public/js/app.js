@@ -3,8 +3,8 @@ var app = angular.module('TranslateApp', []);
 
 app.controller("MainController",  ["$scope", function($scope){
   var controller = this;
-  $scope.$on("Image", function(eventObj, image){
-    controller.image = image;
+  $scope.$on("Image", function(eventObj, data){
+    console.log(data);
     console.log("image received");
   })
 
@@ -12,7 +12,7 @@ app.controller("MainController",  ["$scope", function($scope){
 }]);
 
 app.controller("ProfileController", ["$scope", "$http", function($scope, $http){
- 
+
 this.showWelcome = true;
  var controller = this;
   $http({
@@ -21,20 +21,18 @@ this.showWelcome = true;
   }).then(
     function(response) {
       controller.character = response.data;
-
       console.log(response.data);
       this.showWelcome = false;
-
-      console.log(controller.character.image);
       this.image = null;
-      this.sendImage = function(){
-        $scope.$emit("Image", this.data);
-        console.log("image emitted");
+      controller.sendImage = function(){
+        $scope.$emit("Image", myCharacter);
+        console.log(myCharacter);
       }
     }),
     function(){
       console.log("error");
     }
+
 
 }]);
 

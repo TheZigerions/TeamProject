@@ -27,7 +27,7 @@
       </form>
 
       <h3>your favorite character, you will select</h3>
-      <select name="characterSelect" ng-model="myCharacter" ng-options="character.name for character in profCtrl.character">
+      <select ng-click=ng-model="myCharacter" ng-options="character.name for character in profCtrl.character">
         <!-- this will eventually populate from database add ng-repeat -->
         <!-- <div ng-controller="InfoController as info">
         <option value="{{info.data.name}}"> {{info.data.name}}</img> -->
@@ -37,11 +37,13 @@
       <img id="character" ng-src="{{myCharacter.image}}"></img>
       <br/>
     </section>
-    <section id="character">
+
+    <div ng-model="myCharacter" id="character">
       <!-- <section ng-if="info.data.name != null"> -->
-        <img src="http://vignette4.wikia.nocookie.net/vsbattles/images/e/e7/Stormtrooper.png/revision/latest?cb=20150117214000"></img>
+      <img id="character" ng-src="{{myCharacter.image}}"></img>
       <!-- </section> -->
-    </section>
+    </div>
+
 
     <section ng-if="profCtrl.showResult = false" ng-controller="FormController as formCtrl" id="translate">
       <h3>urban-yodafy this word</h3>
