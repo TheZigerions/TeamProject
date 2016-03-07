@@ -5,9 +5,27 @@ app.controller("MainController", function(){
 
 });
 
-app.controller("ProfileController", function(){
+app.controller("ProfileController", ["$scope", "$http", function($scope, $http){
+ var controller = this;
+  $http({
+    url: ("/users"),
+    method: "GET",
+  }).then(
+    function(response) {
+      controller.character = response.data;
+      console.log(response.data);
+    }),
+    function(){
+      console.log("error");
+    }
 
-});
+    this.pickCharacter = function(){
+      console.log("CLICKED!");
+    }
+
+
+
+}]);
 
 app.controller("FormController", ['$http', function($http){
 

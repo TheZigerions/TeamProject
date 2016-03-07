@@ -27,24 +27,20 @@
       </form>
 
       <h3>your favorite character, you will select</h3>
-      <select>
+      <select name="characterSelect" ng-model="myCharacter" ng-options="character.name for character in profCtrl.character">
         <!-- this will eventually populate from database add ng-repeat -->
         <!-- <div ng-controller="InfoController as info">
         <option value="{{info.data.name}}"> {{info.data.name}}</img> -->
-
-        <option value="yoda">Yoda</option>
-        <option value="chewbacca">Chewbacca</option>
-        <option value="leia">Leia</option>
-        <option value="darth">Darth Vader</option>
-        <option value="r2d2">R2D2</option>
+        <option value="">-- choose character --</option>
       </select>
+      Selected: {{myCharacter.name}}
       <br/>
     </section>
     <section id="character">
       <section ng-if="info.data.name != null">
-        <img ng-src="{{info.data.img}}"></img>
+        <img ng-src="{{character.image}}"></img>
       </section>
-      <img src='http://vignette4.wikia.nocookie.net/vsbattles/images/e/e7/Stormtrooper.png/revision/latest?cb=20150117214000'>
+      <!-- <img src='http://vignette4.wikia.nocookie.net/vsbattles/images/e/e7/Stormtrooper.png/revision/latest?cb=20150117214000'> -->
     </section>
 
     <section ng-controller="FormController as formCtrl" id="translate">

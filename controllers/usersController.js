@@ -4,14 +4,16 @@ var router = express.Router();
 
 var Character = require('../models/character.js');
 
-// router.get("/seed", function(req, res){
+router.get("/", function(req, res){
 
-//  //put the seed function from thom in this route
+  Character.find(function(err, data){
+    console.log("this is the data");
+    res.send(data);
+    console.log(data);
+  });
 
 
- 
-
-// });
+});
 
 
 
