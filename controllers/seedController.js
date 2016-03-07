@@ -11,7 +11,7 @@ var newCharacter = [
 			name: 'Yoda',
   			image: 'http://vignette2.wikia.nocookie.net/disney/images/9/95/Master_Yoda.png/revision/latest?cb=20151112212224'
 		}, {
-			name: 'Chewbaca',
+			name: 'Chewbacca',
     	    img: 'http://vignette3.wikia.nocookie.net/disney/images/d/da/TFA-Chewbacca-Fathead.png/revision/latest?cb=20160207022126'
 	  	}, {
 			name: 'Leia',
@@ -21,7 +21,7 @@ var newCharacter = [
     	    img: 'http://vignette3.wikia.nocookie.net/disney/images/d/df/Darth_Vader_Render.png/revision/latest?cb=20151222170300'
 	  	}, {
 			name: 'R2D2',
-	        img:'ignette3.wikia.nocookie.net/disney/images/7/7c/R2-D2_Render.png/revision/latest?cb=20130314222826'
+	        img:'http://vignette3.wikia.nocookie.net/disney/images/7/7c/R2-D2_Render.png/revision/latest?cb=20130314222826'
 		}
 ];
 
