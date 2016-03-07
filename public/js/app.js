@@ -1,9 +1,15 @@
 var app = angular.module('TranslateApp', []);
 
 
-app.controller("MainController", function(){
+app.controller("MainController",  ["$scope", function($scope){
+  var controller = this;
+  $scope.$on("Image", function(eventObj, image){
+    controller.image = image;
+    console.log("image received");
+  })
 
-});
+
+}]);
 
 app.controller("ProfileController", ["$scope", "$http", function($scope, $http){
  
@@ -15,18 +21,20 @@ this.showWelcome = true;
   }).then(
     function(response) {
       controller.character = response.data;
+
       console.log(response.data);
       this.showWelcome = false;
+
+      console.log(controller.character.image);
+      this.image = null;
+      this.sendImage = function(){
+        $scope.$emit("Image", this.data);
+        console.log("image emitted");
+      }
     }),
     function(){
       console.log("error");
     }
-
-    this.pickCharacter = function(){
-      console.log("CLICKED!");
-    }
-
-
 
 }]);
 

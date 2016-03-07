@@ -34,13 +34,13 @@
         <option value="">-- choose character --</option>
       </select>
       Selected: {{myCharacter.name}}
+      <img id="character" ng-src="{{myCharacter.image}}"></img>
       <br/>
     </section>
     <section id="character">
-      <section ng-if="info.data.name != null">
-        <img ng-src="{{character.image}}"></img>
-      </section>
-      <!-- <img src='http://vignette4.wikia.nocookie.net/vsbattles/images/e/e7/Stormtrooper.png/revision/latest?cb=20150117214000'> -->
+      <!-- <section ng-if="info.data.name != null"> -->
+        <img src="http://vignette4.wikia.nocookie.net/vsbattles/images/e/e7/Stormtrooper.png/revision/latest?cb=20150117214000"></img>
+      <!-- </section> -->
     </section>
 
     <section ng-if="profCtrl.showResult = false" ng-controller="FormController as formCtrl" id="translate">
