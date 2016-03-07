@@ -6,6 +6,8 @@ app.controller("MainController", function(){
 });
 
 app.controller("ProfileController", ["$scope", "$http", function($scope, $http){
+ 
+this.showWelcome = true;
  var controller = this;
   $http({
     url: ("/users"),
@@ -14,6 +16,7 @@ app.controller("ProfileController", ["$scope", "$http", function($scope, $http){
     function(response) {
       controller.character = response.data;
       console.log(response.data);
+      this.showWelcome = false;
     }),
     function(){
       console.log("error");

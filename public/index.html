@@ -18,7 +18,7 @@
       <h3>enter a word we'll translate into urban yoda speak. hmmm.---need some urban yoda way to say this</h3>
     </header>
 
-    <section ng-controller="ProfileController as profCtrl" id="welcome">
+    <section ng-if="profCtrl.showResult = true" ng-controller="ProfileController as profCtrl" id="welcome">
       <h3>enter your name, you will</h3>
       <form ng-submit="">
         <input ng-model="profCtrl.name" type="text" placeholder="name" />
@@ -43,7 +43,7 @@
       <!-- <img src='http://vignette4.wikia.nocookie.net/vsbattles/images/e/e7/Stormtrooper.png/revision/latest?cb=20150117214000'> -->
     </section>
 
-    <section ng-controller="FormController as formCtrl" id="translate">
+    <section ng-if="profCtrl.showResult = false" ng-controller="FormController as formCtrl" id="translate">
       <h3>urban-yodafy this word</h3>
       <form ng-submit="formCtrl.yodafy()">
         <input name="word" ng-model="formCtrl.word" type="text" placeholder=" enter word" />
