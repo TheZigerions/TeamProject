@@ -21,7 +21,7 @@ app.controller("FormController", ['$http', function($http){
       url: 'https://mashape-community-urban-dictionary.p.mashape.com/define?term='+this.word,
       method: 'GET',
       headers: {
-        "X-Mashape-Key": "juy7bjgBM0mshCN2pxiSnCwdHhTCp1Ml6cPjsnYjDWNlVeecII",
+        "X-Mashape-Key": "",
         "Accept": "text/plain"
       }
     }).then(
@@ -31,7 +31,7 @@ app.controller("FormController", ['$http', function($http){
           url: 'https://yoda.p.mashape.com/yoda?sentence='+controller.firstResult,
           method: 'GET',
           headers: {
-            "X-Mashape-Key": "juy7bjgBM0mshCN2pxiSnCwdHhTCp1Ml6cPjsnYjDWNlVeecII",
+            "X-Mashape-Key": "",
             "Accept": "text/plain"
           }
         }).then(
