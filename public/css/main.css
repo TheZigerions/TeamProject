@@ -81,4 +81,6 @@ select {
 	float:left;
 }
 
-
+.graffiti {
+	font-family: 'Finger Paint', cursive;
+}

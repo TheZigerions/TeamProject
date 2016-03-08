@@ -2,6 +2,7 @@
 <html ng-app="TranslateApp">
   <head>
     <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
     <title>Urban Yoda</title>
     <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" charset="utf-8"></script>
@@ -13,7 +14,7 @@
   <body ng-controller="MainController as mainCtrl">
 
     <header>
-      <h1>UrbanYoda</h1>
+      <img src=/img/urbanyoda_logo.png>
       <br/>
     </header>
 
@@ -24,9 +25,9 @@
       <br/>
       <h3>your favorite character, you will select</h3>
       <select ng-change="profCtrl.hasChanged()" ng-model="profCtrl.myCharacter" ng-options="character.name for character in profCtrl.character">
-        <option value="">-- choose character --</option>
+        <option value="">---select---</option>
       </select>
-       {{profCtrl.myCharacter.name}}
+      <!--  {{profCtrl.myCharacter.name}} -->
       <br/>
     </section>
 
@@ -46,7 +47,7 @@
       </form>
         <!-- <textarea ng-if="formCtrl.showResult" rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
         <!-- <textarea rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
-        <p ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
+        <p class="graffiti" ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
         <button ng-if="formCtrl.showResult" ng-click="formCtrl.newResult()">Different</button>
         <button ng-if="formCtrl.showResult">save to favorites</button>
     </section>
