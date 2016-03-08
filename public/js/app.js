@@ -89,4 +89,23 @@ app.controller("FormController", ['$http', function($http){
     )
   }; // -- end newResult function
 
+  //save favorites function
+  this.saveFavorites = function(){
+    console.log("saved!");
+    console.log(controller.urbanResult);
+
+    $http({
+      method: "POST",
+      url: "/favorites",
+      data: controller.urbanResult
+    })
+    .then(
+      function(response){
+        console.log(respo)
+      }
+    ), function(err){
+      console.log("error");
+    }
+  };
+
 }]); // -- end form controller
