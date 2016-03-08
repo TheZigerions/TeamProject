@@ -15,34 +15,27 @@
     <header>
       <h1>UrbanYoda</h1>
       <br/>
-      <h3>enter a word we'll translate into urban yoda speak. hmmm.---need some urban yoda way to say this</h3>
     </header>
 
 
     <section ng-if="profCtrl.showResult = true" ng-controller="ProfileController as profCtrl" id="welcome">
-      <h3>enter your name, you will</h3>
-      <form ng-submit="">
-        <input ng-model="profCtrl.name" type="text" placeholder="name" />
-        <input ng-model= "profCtrl.age" type="checkbox" name="over18" value="over 18" /> over 18?
-        <button>submit</button>
-      </form>
-
+      <h3>Welcome to Urban Yoda</h3>
+      <h4>about goes here</h4>
+      <br/>
       <h3>your favorite character, you will select</h3>
       <select ng-change="profCtrl.hasChanged()" ng-model="profCtrl.myCharacter" ng-options="character.name for character in profCtrl.character">
-        <!-- this will eventually populate from database add ng-repeat -->
-        <!-- <div ng-controller="InfoController as info">
-        <option value="{{info.data.name}}"> {{info.data.name}}</img> -->
         <option value="">-- choose character --</option>
       </select>
-      Selected: {{profCtrl.myCharacter.name}}
+       {{profCtrl.myCharacter.name}}
       <br/>
     </section>
 
-    <div id="character">
-      <!-- <section ng-if="info.data.name != null"> -->
-    <img id="character" ng-src="{{mainCtrl.myCharacter}}"></img>
-      <!-- </section> -->
-    </div>
+    <section id="character">
+      <div>
+        <img ng-src="{{mainCtrl.myCharacter}}"></img>
+      </div>
+    </section>
+
 
 
     <section ng-controller="FormController as formCtrl" id="translate">

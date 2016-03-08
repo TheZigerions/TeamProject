@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var favoriteSchema = mongoose.Schema({
 
   body: String,
-  date: {type: Date, default: Date.now}
+  dateCreated: { type:Date, default:Date.now }
+
 
 });
 
