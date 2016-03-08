@@ -45,7 +45,7 @@
     </div>
 
 
-    <section ng-if="profCtrl.showResult = false" ng-controller="FormController as formCtrl" id="translate">
+    <section ng-if="profCtrl.showResult" ng-controller="FormController as formCtrl" id="translate">
       <h3>urban-yodafy this word</h3>
       <form ng-submit="formCtrl.yodafy()">
         <input name="word" ng-model="formCtrl.word" type="text" placeholder=" enter word" />
