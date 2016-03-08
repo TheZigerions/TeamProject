@@ -23,14 +23,14 @@ header h1, header h3 {
 
 #welcome {
 	height: 180px;
-	width: 50%;
+	width: 40%;
 	padding: 2em;
 	margin: 2em 4em;
 	border: solid black 1px;
 	text-align: center;
 	background-color: white;
 	opacity: 0.8;
-	border-radius: 4px;
+	border-radius: 6px;
 	box-shadow: 5px 5px 2px #424242;
 	overflow: auto;
 	float:left;
@@ -60,24 +60,27 @@ select {
 }
 
 #character img {
-	max-width: 25em;
-	max-height: 50em;
+	width: 30%;
 	overflow:auto;
 	float:right;
+	margin-right: 5%;
+	bottom: 2em;
 }
 #translate {
 	height: 190px;
-	width: 50%;
+	width: 40%;
 	padding: 2em;
 	margin: 2em 4em;
 	border: solid black 1px;
 	text-align: center;
 	background-color: white;
 	opacity: 0.8;
-	border-radius: 4px;
+	border-radius: 6px;
 	box-shadow: 5px 5px 2px #424242;
 	overflow:auto;
 	float:left;
 }
 
-
+.graffiti {
+	font-family: 'Finger Paint', cursive;
+}
