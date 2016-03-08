@@ -40,6 +40,7 @@ this.showWelcome = true;
 app.controller("FormController", ['$http', function($http){
 
   this.showResult = false;
+  this.showButton = false;
   this.urbanResult = null;
   this.results = [];
   var controller = this;
@@ -53,6 +54,12 @@ app.controller("FormController", ['$http', function($http){
     var text = this.word;
     $http.get('/getdata/'+text).then(
       function(response){
+        if (response.data.list.length < 1) {
+          controller.showResult = true;
+          controller.word = undefined;
+          controller.showButton = false;
+          return controller.urbanResult = 'Does not exist, this word. Error, you have made. Try again, you will.'
+        }
         var x = response.data.list.length;
         controller.results = [];
         for (var i=0; i < response.data.list.length; i++){
@@ -63,6 +70,7 @@ app.controller("FormController", ['$http', function($http){
           function(result){
             controller.urbanResult = result.data;
             controller.showResult = true;
+            controller.showButton = true;
             controller.word = undefined;
           },
           function(){
