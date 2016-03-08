@@ -91,21 +91,21 @@ app.controller("FormController", ['$http', function($http){
 
   //save favorites function
   this.saveFavorites = function(){
-    console.log("saved!");
-    console.log(controller.urbanResult);
+     var controller = this;
+     var result = controller.urbanResult;
 
-    $http({
-      method: "POST",
-      url: "/favorites",
-      data: controller.urbanResult
-    })
-    .then(
-      function(response){
-        console.log(respo)
-      }
-    ), function(err){
-      console.log("error");
-    }
-  };
+     $http({
+       method: "POST",
+       url: "/favorites/"+result,
+       headers: {'Content-Type': 'undefined'}
+     })
+     .then(
+       function(response){
+         console.log(response);
+       }
+     ), function(err){
+       console.log("error");
+     }
+   };
 
 }]); // -- end form controller

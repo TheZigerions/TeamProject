@@ -4,37 +4,31 @@ var router = express.Router();
 
 var Favorite = require("../models/favorite.js");
 
-var newFavorite = [
-		{
-			body: 'This is a definition',
-  		// date: ""
-		}
-];
+// var newFavorite = [
+// 		{
+// 			body: 'This is a definition',
+//   		// date: ""
+// 		}
+// ];
 
 
 router.get("/", function(req,res){
 
-  Favorite.create(newFavorite, function(err) {
-		if (err) {
-			console.log(err);
-			res.send('Error seeding favorites');
-		} else {
-			console.log('FAV SEED EXECUTED');
-			res.redirect('/')
-		}
-	});
+  Favorite.find({}, function(err, data){
+		res.send(data);
+	})
 
 })
 
 
-router.post("/", function(req, res) {
+router.post("/:text", function(req, res) {
+   var result = req.params.text;
 
-
-
-
+   Favorite.create({}, {body: result}, function(err, data){
+     res.send(data);
+   });
 
 });
-
 
 
 module.exports = router;
