@@ -53,7 +53,8 @@
       </form>
         <!-- <textarea ng-if="formCtrl.showResult" rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
         <!-- <textarea rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
-        <p ng-if="formCtrl.showResult">{{formCtrl.secondResult}}</p>
+        <p ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
+        <button ng-if="formCtrl.showResult" ng-click="formCtrl.newResult()">Different</button>
         <button ng-if="formCtrl.showResult">save to favorites</button>
     </section>
 

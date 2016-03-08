@@ -40,53 +40,53 @@ this.showWelcome = true;
 app.controller("FormController", ['$http', function($http){
 
   this.showResult = false;
-  this.firstResult = null;
-  this.secondResult = null;
+  this.urbanResult = null;
+  this.results = [];
   var controller = this;
 
+  var randomNum = function(min, max){
+    return Math.floor(Math.random()*(max - min + 1)) + min;
+  };
+
   this.yodafy = function(){
-    console.log(controller.word);
 
-    $http({
-      url: "/favorites",
-      method: "POST"
-    })
+    var text = this.word;
+    $http.get('/getdata/'+text).then(
+      function(response){
+        var x = response.data.list.length;
+        controller.results = [];
+        for (var i=0; i < response.data.list.length; i++){
+          controller.results.push(response.data.list[i].definition)
+        }
+        var urban = response.data.list[(randomNum(1, x) - 1)].definition;
+        $http.get('/getdata2/'+urban).then(
+          function(result){
+            controller.urbanResult = result.data;
+            controller.showResult = true;
+            controller.word = undefined;
+          },
+          function(){
+            console.log(err);
+          }
+        )
+      },
+      function(){
+        console.log(err);
+      }
+    );
+  }; // -- end yodafy function
 
-  }
-
-
-  //   $http({
-  //     url: 'https://mashape-community-urban-dictionary.p.mashape.com/define?term='+this.word,
-  //     method: 'GET',
-  //     headers: {
-  //       "X-Mashape-Key": "",
-  //       "Accept": "text/plain"
-  //     }
-  //   }).then(
-  //     function(response){
-  //       controller.firstResult = response.data.list[0].definition;
-  //       $http({
-  //         url: 'https://yoda.p.mashape.com/yoda?sentence='+controller.firstResult,
-  //         method: 'GET',
-  //         headers: {
-  //           "X-Mashape-Key": "",
-  //           "Accept": "text/plain"
-  //         }
-  //       }).then(
-  //         function(result){
-  //           controller.secondResult = result.data;
-  //           controller.showResult = true;
-  //           controller.word = undefined;
-  //         },
-  //         function(){
-  //           console.log(err);
-  //         }
-  //       )
-  //     },
-  //     function(){
-  //       console.log(err);
-  //     }
-  //   );
-  // }; // -- end yodafy function
+  this.newResult = function(){
+    var x = controller.results.length;
+    var urban = controller.results[(randomNum(1, x) - 1)];
+    $http.get('/getdata2/'+urban).then(
+      function(response){
+        controller.urbanResult = response.data;
+      },
+      function(){
+        console.log(err);
+      }
+    )
+  }; // -- end newResult function
 
 }]); // -- end form controller
