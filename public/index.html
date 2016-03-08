@@ -45,7 +45,7 @@
     </div>
 
 
-    <section ng-if="profCtrl.showResult = false" ng-controller="FormController as formCtrl" id="translate">
+    <section ng-controller="FormController as formCtrl" id="translate">
       <h3>urban-yodafy this word</h3>
       <form ng-submit="formCtrl.yodafy()">
         <input name="word" ng-model="formCtrl.word" type="text" placeholder=" enter word" />
@@ -53,7 +53,8 @@
       </form>
         <!-- <textarea ng-if="formCtrl.showResult" rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
         <!-- <textarea rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
-        <p ng-if="formCtrl.showResult">{{formCtrl.secondResult}}</p>
+        <p ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
+        <button ng-if="formCtrl.showResult" ng-click="formCtrl.newResult()">Different</button>
         <button ng-if="formCtrl.showResult">save to favorites</button>
     </section>
 
