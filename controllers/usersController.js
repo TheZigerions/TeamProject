@@ -9,7 +9,7 @@ router.get("/", function(req, res){
   Character.find(function(err, data){
     console.log("this is the data");
     res.send(data);
-    console.log(data);
+    // console.log(data);
   });
 
 
@@ -17,10 +17,14 @@ router.get("/", function(req, res){
 
 
 
+router.post("/", function(req, res) {
 
-// router.post("/", function(req,res){
-//
-// });
+  
+
+
+
+});
+
 
 
 

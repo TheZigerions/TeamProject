@@ -58,6 +58,9 @@ app.use("/users", usersController);
 var seedController = require('./controllers/seedController');
 app.use('/seed', seedController);
 
+var favoriteController = require('./controllers/favoriteController');
+app.use('/favorites', favoriteController);
+
 ////////////////////
 // LISTEN
 ////////////////////

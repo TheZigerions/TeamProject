@@ -4,9 +4,9 @@ var app = angular.module('TranslateApp', []);
 app.controller("MainController",  ["$scope", function($scope){
   var controller = this;
   $scope.$on("ImageSend", function(eventObj, data){
-    console.log(data);
+    // console.log(data);
     controller.myCharacter = data;
-    console.log("image received");
+    // console.log("image received");
   });
 
 
@@ -22,12 +22,12 @@ this.showWelcome = true;
   }).then(
     function(response) {
       controller.character = response.data;
-      console.log(response.data);
+      // console.log(response.data);
       this.showWelcome = false;
       controller.hasChanged = function(){
         $scope.$emit("ImageSend", this.myCharacter.image);
-        console.log(this.myCharacter.image);
-        console.log("changed")
+        // console.log(this.myCharacter.image);
+        // console.log("changed")
       }
     }),
     function(){
@@ -88,5 +88,24 @@ app.controller("FormController", ['$http', function($http){
       }
     )
   }; // -- end newResult function
+
+  //save favorites function
+  this.saveFavorites = function(){
+     var controller = this;
+     var result = controller.urbanResult;
+
+     $http({
+       method: "POST",
+       url: "/favorites/"+result,
+       headers: {'Content-Type': 'undefined'}
+     })
+     .then(
+       function(response){
+         console.log(response);
+       }
+     ), function(err){
+       console.log("error");
+     }
+   };
 
 }]); // -- end form controller
