@@ -10,13 +10,14 @@
     <base href="/">
   </head>
 
-  <body ng-controller"MainController as mainCtrl">
+  <body ng-controller="MainController as mainCtrl">
 
     <header>
       <h1>UrbanYoda</h1>
       <br/>
       <h3>enter a word we'll translate into urban yoda speak. hmmm.---need some urban yoda way to say this</h3>
     </header>
+
 
     <section ng-if="profCtrl.showResult = true" ng-controller="ProfileController as profCtrl" id="welcome">
       <h3>enter your name, you will</h3>
@@ -27,20 +28,19 @@
       </form>
 
       <h3>your favorite character, you will select</h3>
-      <select ng-click=ng-model="myCharacter" ng-options="character.name for character in profCtrl.character">
+      <select ng-change="profCtrl.hasChanged()" ng-model="profCtrl.myCharacter" ng-options="character.name for character in profCtrl.character">
         <!-- this will eventually populate from database add ng-repeat -->
         <!-- <div ng-controller="InfoController as info">
         <option value="{{info.data.name}}"> {{info.data.name}}</img> -->
         <option value="">-- choose character --</option>
       </select>
-      Selected: {{myCharacter.name}}
-      <img id="character" ng-src="{{myCharacter.image}}"></img>
+      Selected: {{profCtrl.myCharacter.name}}
       <br/>
     </section>
 
-    <div ng-model="myCharacter" id="character">
+    <div id="character">
       <!-- <section ng-if="info.data.name != null"> -->
-      <img id="character" ng-src="{{myCharacter.image}}"></img>
+    <img id="character" ng-src="{{mainCtrl.myCharacter}}"></img>
       <!-- </section> -->
     </div>
 

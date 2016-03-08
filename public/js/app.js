@@ -3,10 +3,11 @@ var app = angular.module('TranslateApp', []);
 
 app.controller("MainController",  ["$scope", function($scope){
   var controller = this;
-  $scope.$on("Image", function(eventObj, data){
+  $scope.$on("ImageSend", function(eventObj, data){
     console.log(data);
+    controller.myCharacter = data;
     console.log("image received");
-  })
+  });
 
 
 }]);
@@ -23,10 +24,10 @@ this.showWelcome = true;
       controller.character = response.data;
       console.log(response.data);
       this.showWelcome = false;
-      this.image = null;
-      controller.sendImage = function(){
-        $scope.$emit("Image", myCharacter);
-        console.log(myCharacter);
+      controller.hasChanged = function(){
+        $scope.$emit("ImageSend", this.myCharacter.image);
+        console.log(this.myCharacter.image);
+        console.log("changed")
       }
     }),
     function(){
