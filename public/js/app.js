@@ -4,9 +4,9 @@ var app = angular.module('TranslateApp', []);
 app.controller("MainController",  ["$scope", function($scope){
   var controller = this;
   $scope.$on("ImageSend", function(eventObj, data){
-    console.log(data);
+    // console.log(data);
     controller.myCharacter = data;
-    console.log("image received");
+    // console.log("image received");
   });
 
 
@@ -22,12 +22,12 @@ this.showWelcome = true;
   }).then(
     function(response) {
       controller.character = response.data;
-      console.log(response.data);
+      // console.log(response.data);
       this.showWelcome = false;
       controller.hasChanged = function(){
         $scope.$emit("ImageSend", this.myCharacter.image);
-        console.log(this.myCharacter.image);
-        console.log("changed")
+        // console.log(this.myCharacter.image);
+        // console.log("changed")
       }
     }),
     function(){
@@ -40,6 +40,7 @@ this.showWelcome = true;
 app.controller("FormController", ['$http', function($http){
 
   this.showResult = false;
+  this.showButton = false;
   this.urbanResult = null;
   this.results = [];
   var controller = this;
@@ -53,6 +54,12 @@ app.controller("FormController", ['$http', function($http){
     var text = this.word;
     $http.get('/getdata/'+text).then(
       function(response){
+        if (response.data.list.length < 1) {
+          controller.showResult = true;
+          controller.word = undefined;
+          controller.showButton = false;
+          return controller.urbanResult = 'Does not exist, this word. Error, you have made. Try again, you will.'
+        }
         var x = response.data.list.length;
         controller.results = [];
         for (var i=0; i < response.data.list.length; i++){
@@ -63,6 +70,7 @@ app.controller("FormController", ['$http', function($http){
           function(result){
             controller.urbanResult = result.data;
             controller.showResult = true;
+            controller.showButton = true;
             controller.word = undefined;
           },
           function(){
@@ -88,5 +96,24 @@ app.controller("FormController", ['$http', function($http){
       }
     )
   }; // -- end newResult function
+
+  //save favorites function
+  this.saveFavorites = function(){
+     var controller = this;
+     var result = controller.urbanResult;
+
+     $http({
+       method: "POST",
+       url: "/favorites/"+result,
+       headers: {'Content-Type': 'undefined'}
+     })
+     .then(
+       function(response){
+         console.log(response);
+       }
+     ), function(err){
+       console.log("error");
+     }
+   };
 
 }]); // -- end form controller

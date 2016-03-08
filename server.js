@@ -9,9 +9,10 @@ var mongoose = require('mongoose');
 var db = mongoose.connection;
 var key = process.env.YODA_KEY;
 var request = require('request');
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/urbanyoda';
 var port = process.env.PORT || 3000;
 
-mongoose.connect('mongodb://localhost:27017/urbanyoda');
+mongoose.connect(mongoUri);
 
 ////////////////////
 // MIDDLEWARE
@@ -56,6 +57,9 @@ app.use("/users", usersController);
 
 var seedController = require('./controllers/seedController');
 app.use('/seed', seedController);
+
+var favoriteController = require('./controllers/favoriteController');
+app.use('/favorites', favoriteController);
 
 ////////////////////
 // LISTEN
