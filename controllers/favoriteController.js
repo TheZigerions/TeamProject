@@ -21,9 +21,10 @@ router.get("/", function(req,res){
 })
 
 
-router.post("/:text", function(req, res) {
+router.post("/:id/:text", function(req, res) {
    var result = req.params.text;
-   Favorite.create({body: result}, function(err, data){
+   var word = req.params.id;
+   Favorite.create({name: word, body: result}, function(err, data){
      res.send(data);
    });
 

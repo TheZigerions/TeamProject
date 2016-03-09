@@ -8,7 +8,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
-    <script src="js/scripts.js" charset="utf-8"></script>
     <base href="/">
   </head>
 
@@ -42,7 +41,7 @@
         </select>
         <!--  {{profCtrl.myCharacter.name}} -->
         <br/>
-      </section>   
+      </section>
 
       <section ng-controller="FormController as formCtrl" id="translate">
         <h3>get the UrbanYoda definition of a word</h3>
@@ -70,6 +69,7 @@
           </div>
           <br/>
 
+
           <br/>
           <p class="graffiti" ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
           <br/>
@@ -78,7 +78,12 @@
       </section>
     </div>
 
-    
+    <div id="favorites" ng-controller="FavoritesController as favCtrl">
+      <ul>
+        <li ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.name}}: {{favs.body}}</li>
+      </ul>
+    </div>
+
 
   </body>
 </html>
