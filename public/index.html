@@ -36,22 +36,41 @@
         </select>
         <!--  {{profCtrl.myCharacter.name}} -->
         <br/>
-      </section>
-
-      
+      </section>   
 
       <section ng-controller="FormController as formCtrl" id="translate">
-        <h3>urban-yodafy this word</h3>
+        <h3>get the UrbanYoda definition of a word</h3>
         <form ng-submit="formCtrl.yodafy()">
           <input name="word" ng-model="formCtrl.word" type="text" placeholder=" enter word" />
-          <button id="submit-button"><img src=/img/uy_button.png></button>
         </form>
           <!-- <textarea ng-if="formCtrl.showResult" rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
           <!-- <textarea rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
+          <div ng-if= "formCtrl.showLoading" id="loading">
+              <div id="fountainText_1" class="fountainText">l</div>
+              <div id="fountainText_2" class="fountainText">o</div>
+              <div id="fountainText_3" class="fountainText">a</div>
+              <div id="fountainText_4" class="fountainText">d</div>
+              <div id="fountainText_5" class="fountainText">i</div>
+              <div id="fountainText_6" class="fountainText">n</div>
+              <div id="fountainText_7" class="fountainText">g</div>
+              <div id="fountainText_1" class="fountainText">, </div>
+              <div id="fountainText_2" class="fountainText">m</div>
+              <div id="fountainText_3" class="fountainText">a</div>
+              <div id="fountainText_4" class="fountainText">s</div>
+              <div id="fountainText_5" class="fountainText">t</div>
+              <div id="fountainText_6" class="fountainText">e</div>
+              <div id="fountainText_7" class="fountainText">r</div>
+            </div>
+            <br/>
+            <br/>
           <p class="graffiti" ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
-          <button ng-if="formCtrl.showButton" ng-click="formCtrl.newResult()">Different</button>
-          <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showButton">save to favorites</button>      
+
+          <button ng-if="formCtrl.showButton" ng-click="formCtrl.newResult()">get another</button>
+          <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showButton">save to favorites</button> 
+
+            
       </section>
+
     </div>
   </body>
 </html>

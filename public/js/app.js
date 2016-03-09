@@ -42,6 +42,7 @@ app.controller("FormController", ['$http', function($http){
   this.showResult = false;
   this.showButton = false;
   this.urbanResult = null;
+  this.showLoading = false;
   this.results = [];
   var controller = this;
 
@@ -50,6 +51,7 @@ app.controller("FormController", ['$http', function($http){
   };
 
   this.yodafy = function(){
+    controller.showLoading = true;
 
     var text = this.word;
     $http.get('/getdata/'+text).then(
@@ -71,6 +73,7 @@ app.controller("FormController", ['$http', function($http){
             controller.urbanResult = result.data;
             controller.showResult = true;
             controller.showButton = true;
+            controller.showLoading = false;
             controller.word = undefined;
           },
           function(){
