@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt|Reenie+Beanie|Walter+Turncoat' rel='stylesheet' type='text/css'>
     <title>Urban Yoda</title>
-    <link rel="stylesheet" 
+    <link rel="stylesheet"
     href="css/main.css" media="screen" title="no title" charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js" charset="utf-8"></script>
@@ -36,7 +36,7 @@
         </select>
         <!--  {{profCtrl.myCharacter.name}} -->
         <br/>
-      </section>   
+      </section>
 
       <section ng-controller="FormController as formCtrl" id="translate">
         <h3>get the UrbanYoda definition of a word</h3>
@@ -66,13 +66,13 @@
           <p class="graffiti" ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
 
           <button ng-if="formCtrl.showButton" ng-click="formCtrl.newResult()">get another</button>
-          <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showButton">save to favorites</button> 
+          <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showButton">save to favorites</button>
       </section>
     </div>
 
     <div id="favorites" ng-controller="FavoritesController as favCtrl">
       <ul>
-        <li ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.body}}</li>
+        <li ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.name}}: {{favs.body}}</li>
       </ul>
     </div>
 

@@ -44,16 +44,17 @@ app.controller("FormController", ['$http', "$scope", function($http, $scope){
   this.urbanResult = null;
   this.showLoading = false;
   this.results = [];
+  this.theWord = null;
   var controller = this;
 
   var randomNum = function(min, max){
     return Math.floor(Math.random()*(max - min + 1)) + min;
   };
-
   this.yodafy = function(){
     controller.showLoading = true;
 
     var text = this.word;
+    controller.theWord = this.word;
     $http.get('/getdata/'+text).then(
       function(response){
         if (response.data.list.length < 1) {
@@ -86,7 +87,6 @@ app.controller("FormController", ['$http', "$scope", function($http, $scope){
       }
     );
   }; // -- end yodafy function
-
   this.newResult = function(){
     var x = controller.results.length;
     var urban = controller.results[(randomNum(1, x) - 1)];
@@ -104,10 +104,11 @@ app.controller("FormController", ['$http', "$scope", function($http, $scope){
   this.saveFavorites = function(){
      var controller = this;
      var result = controller.urbanResult;
-
+     console.log(controller.theWord);
+     var theWord = controller.theWord;
      $http({
        method: "POST",
-       url: "/favorites/"+result,
+       url: "/favorites/"+theWord+"/"+result,
        headers: {'Content-Type': 'undefined'}
      })
      .then(
@@ -115,6 +116,7 @@ app.controller("FormController", ['$http', "$scope", function($http, $scope){
         //  console.log(response.data.body);
         //  console.log($scope);
         //  console.log($scope.$$nextSibling.favCtrl.favorites);
+        console.log(response.data);
          $scope.$$nextSibling.favCtrl.favorites.push(response.data);
        }
      ), function(err){
@@ -124,6 +126,7 @@ app.controller("FormController", ['$http', "$scope", function($http, $scope){
 
 
 }]); // -- end form controller
+
 
 app.controller("FavoritesController", ["$http", function($http){
   var controller = this;
