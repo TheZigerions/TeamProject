@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt|Reenie+Beanie|Walter+Turncoat' rel='stylesheet' type='text/css'>
     <title>Urban Yoda</title>
-    <link rel="stylesheet" 
-    href="css/main.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/scripts.js" charset="utf-8"></script>
     <base href="/">
   </head>
 
@@ -18,6 +18,12 @@
       <img id="logo" src=/img/urbanyoda_logo.png>
       <br/>
     </header>
+
+    <div id="marquee" ng-controller="FavoritesController as favCtrl">
+        <ul class='marquee-text'>
+            <li ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.body}}</li>
+        </ul>
+    </div>
 
     <section id="character">
         <div>
@@ -45,36 +51,34 @@
         </form>
           <!-- <textarea ng-if="formCtrl.showResult" rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
           <!-- <textarea rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
-          <div ng-if= "formCtrl.showLoading" id="loading">
-              <div id="fountainText_1" class="fountainText">l</div>
-              <div id="fountainText_2" class="fountainText">o</div>
-              <div id="fountainText_3" class="fountainText">a</div>
-              <div id="fountainText_4" class="fountainText">d</div>
-              <div id="fountainText_5" class="fountainText">i</div>
-              <div id="fountainText_6" class="fountainText">n</div>
-              <div id="fountainText_7" class="fountainText">g</div>
-              <div id="fountainText_1" class="fountainText">, </div>
-              <div id="fountainText_2" class="fountainText">m</div>
-              <div id="fountainText_3" class="fountainText">a</div>
-              <div id="fountainText_4" class="fountainText">s</div>
-              <div id="fountainText_5" class="fountainText">t</div>
-              <div id="fountainText_6" class="fountainText">e</div>
-              <div id="fountainText_7" class="fountainText">r</div>
-          </div>
-            <br/>
-            <br/>
-          <p class="graffiti" ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
 
-          <button ng-if="formCtrl.showButton" ng-click="formCtrl.newResult()">get another</button>
-          <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showButton">save to favorites</button> 
+          <div ng-if= "formCtrl.showLoading" id="loading">
+              <div id="loadingText_1" class="loadingText">l</div>
+              <div id="loadingText_2" class="loadingText">o</div>
+              <div id="loadingText_3" class="loadingText">a</div>
+              <div id="loadingText_4" class="loadingText">d</div>
+              <div id="loadingText_5" class="loadingText">i</div>
+              <div id="loadingText_6" class="loadingText">n</div>
+              <div id="loadingText_7" class="loadingText">g</div>
+              <div id="loadingText_1" class="loadingText">, </div>
+              <div id="loadingText_2" class="loadingText">m</div>
+              <div id="loadingText_3" class="loadingText">a</div>
+              <div id="loadingText_4" class="loadingText">s</div>
+              <div id="loadingText_5" class="loadingText">t</div>
+              <div id="loadingText_6" class="loadingText">e</div>
+              <div id="loadingText_7" class="loadingText">r</div>
+          </div>
+          <br/>
+
+          <br/>
+          <p class="graffiti" ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
+          <br/>
+          <button ng-if="formCtrl.showButton" ng-click="formCtrl.newResult()">this definition sucks, get another</button>
+          <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showButton">this is sick, save it</button> 
       </section>
     </div>
 
-    <div id="favorites" ng-controller="FavoritesController as favCtrl">
-      <ul>
-        <li ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.body}}</li>
-      </ul>
-    </div>
+    
 
   </body>
 </html>
