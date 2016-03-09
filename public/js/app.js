@@ -119,7 +119,7 @@ app.controller("FormController", ['$http', "$scope", function($http, $scope){
         //  console.log($scope);
         //  console.log($scope.$$nextSibling.favCtrl.favorites);
         console.log(response.data);
-         $scope.$$nextSibling.favCtrl.favorites.push(response.data);
+         $scope.$$prevSibling.favCtrl.favorites.push(response.data);
        }
      ), function(err){
        console.log("error");

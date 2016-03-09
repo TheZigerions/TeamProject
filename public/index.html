@@ -21,7 +21,7 @@
     <div id="marquee" ng-controller="FavoritesController as favCtrl">
         <ul class='marquee-text'>
             <!-- <li class="graffiti"> hello, bla , bla, bla. team projects are fun. urban yoda is gonna be the coolest app ever </li> -->
-            <li ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.name}}: {{favs.body}}</li>
+            <li class="graffiti" ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.name}}: {{favs.body}}</li>
         </ul>
     </div>
 
