@@ -2,9 +2,10 @@
 <html ng-app="TranslateApp">
   <head>
     <meta charset="utf-8">
-    <link href='https://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt|Reenie+Beanie|Walter+Turncoat' rel='stylesheet' type='text/css'>
     <title>Urban Yoda</title>
-    <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" 
+    href="css/main.css" media="screen" title="no title" charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
@@ -14,45 +15,43 @@
   <body ng-controller="MainController as mainCtrl">
 
     <header>
-      <img src=/img/urbanyoda_logo.png>
+      <img id="logo" src=/img/urbanyoda_logo.png>
       <br/>
     </header>
 
-
-    <section ng-if="profCtrl.showResult = true" ng-controller="ProfileController as profCtrl" id="welcome">
-      <h3>Welcome to Urban Yoda</h3>
-      <h4>about goes here</h4>
-      <br/>
-      <h3>your favorite character, you will select</h3>
-      <select ng-change="profCtrl.hasChanged()" ng-model="profCtrl.myCharacter" ng-options="character.name for character in profCtrl.character">
-        <option value="">---select---</option>
-      </select>
-      <!--  {{profCtrl.myCharacter.name}} -->
-      <br/>
-    </section>
-
     <section id="character">
-      <div>
-        <img ng-src="{{mainCtrl.myCharacter}}"></img>
-      </div>
-    </section>
+        <div>
+          <img ng-src="{{mainCtrl.myCharacter}}"></img>
+        </div>
+      </section>
 
+    <div>
+      <section ng-if="profCtrl.showResult = true" ng-controller="ProfileController as profCtrl" id="welcome">
+        <h3>Welcome to Urban Yoda</h3>
+        <h4 id="about">about goes here</h4>
+        <br/>
+        <h3>your favorite character, you will select</h3>
+        <select ng-change="profCtrl.hasChanged()" ng-model="profCtrl.myCharacter" ng-options="character.name for character in profCtrl.character">
+          <option value="">---select---</option>
+        </select>
+        <!--  {{profCtrl.myCharacter.name}} -->
+        <br/>
+      </section>
 
+      
 
-    <section ng-controller="FormController as formCtrl" id="translate">
-      <h3>urban-yodafy this word</h3>
-      <form ng-submit="formCtrl.yodafy()">
-        <input name="word" ng-model="formCtrl.word" type="text" placeholder=" enter word" />
-        <button>submit</button>
-      </form>
-        <!-- <textarea ng-if="formCtrl.showResult" rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
-        <!-- <textarea rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
-        <p class="graffiti" ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
-        <button ng-if="formCtrl.showButton" ng-click="formCtrl.newResult()">Different</button>
-        <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showButton">save to favorites</button>
-
-        
-    </section>
-
+      <section ng-controller="FormController as formCtrl" id="translate">
+        <h3>urban-yodafy this word</h3>
+        <form ng-submit="formCtrl.yodafy()">
+          <input name="word" ng-model="formCtrl.word" type="text" placeholder=" enter word" />
+          <button id="submit-button"><img src=/img/uy_button.png></button>
+        </form>
+          <!-- <textarea ng-if="formCtrl.showResult" rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
+          <!-- <textarea rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
+          <p class="graffiti" ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
+          <button ng-if="formCtrl.showButton" ng-click="formCtrl.newResult()">Different</button>
+          <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showButton">save to favorites</button>      
+      </section>
+    </div>
   </body>
 </html>
