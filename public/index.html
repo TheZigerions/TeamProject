@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html ng-app="TranslateApp">
   <head>
-    <meta charset="utf-8">
-    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt|Reenie+Beanie|Walter+Turncoat' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">    
     <title>Urban Yoda</title>
     <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
+    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt|Reenie+Beanie|Walter+Turncoat' rel='stylesheet' type='text/css'>
     <base href="/">
   </head>
 
@@ -20,7 +20,8 @@
 
     <div id="marquee" ng-controller="FavoritesController as favCtrl">
         <ul class='marquee-text'>
-            <li ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.body}}</li>
+            <!-- <li class="graffiti"> hello, bla , bla, bla. team projects are fun. urban yoda is gonna be the coolest app ever </li> -->
+            <li ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.name}}: {{favs.body}}</li>
         </ul>
     </div>
 
@@ -77,13 +78,6 @@
           <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showButton">this is sick, save it</button> 
       </section>
     </div>
-
-    <div id="favorites" ng-controller="FavoritesController as favCtrl">
-      <ul>
-        <li ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.name}}: {{favs.body}}</li>
-      </ul>
-    </div>
-
 
   </body>
 </html>

@@ -3,6 +3,8 @@ var app = angular.module('TranslateApp', []);
 
 app.controller("MainController",  ["$scope", function($scope){
   var controller = this;
+
+  controller.myCharacter = 'http://vignette2.wikia.nocookie.net/disney/images/9/95/Master_Yoda.png/revision/latest?cb=20151112212224';
   $scope.$on("ImageSend", function(eventObj, data){
     // console.log(data);
     controller.myCharacter = data;
