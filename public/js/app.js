@@ -37,7 +37,7 @@ this.showWelcome = true;
 
 }]);
 
-app.controller("FormController", ['$http', function($http){
+app.controller("FormController", ['$http', "$scope", function($http, $scope){
 
   this.showResult = false;
   this.showButton = false;
@@ -109,11 +109,37 @@ app.controller("FormController", ['$http', function($http){
      })
      .then(
        function(response){
-         console.log(response);
+        //  console.log(response.data.body);
+        //  console.log($scope);
+        //  console.log($scope.$$nextSibling.favCtrl.favorites);
+         $scope.$$nextSibling.favCtrl.favorites.push(response.data);
        }
      ), function(err){
        console.log("error");
      }
    };
 
+
 }]); // -- end form controller
+
+app.controller("FavoritesController", ["$http", function($http){
+  var controller = this;
+  $http({
+    method: "GET",
+    url: "/favorites",
+  })
+  .then(
+    function(response){
+      console.log(response.data);
+      controller.favorites = response.data;
+    }
+  ),
+    function(err){
+    console.log(error);
+  }
+
+
+
+
+
+}]);

@@ -51,8 +51,14 @@
         <button ng-if="formCtrl.showButton" ng-click="formCtrl.newResult()">Different</button>
         <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showButton">save to favorites</button>
 
-        
+
     </section>
+
+    <div ng-controller="FavoritesController as favCtrl">
+      <ul>
+        <li ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.body}}</li>
+      </ul>
+    </div>
 
   </body>
 </html>

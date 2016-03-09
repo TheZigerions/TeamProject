@@ -23,8 +23,7 @@ router.get("/", function(req,res){
 
 router.post("/:text", function(req, res) {
    var result = req.params.text;
-
-   Favorite.create({}, {body: result}, function(err, data){
+   Favorite.create({body: result}, function(err, data){
      res.send(data);
    });
 
