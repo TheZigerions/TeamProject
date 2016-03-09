@@ -20,7 +20,6 @@
 
     <div id="marquee" ng-controller="FavoritesController as favCtrl">
         <ul class='marquee-text'>
-            <!-- <li class="graffiti"> hello, bla , bla, bla. team projects are fun. urban yoda is gonna be the coolest app ever </li> -->
             <li class="graffiti" ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.name}}: {{favs.body}}</li>
         </ul>
     </div>
@@ -49,9 +48,6 @@
         <form ng-submit="formCtrl.yodafy()">
           <input name="word" ng-model="formCtrl.word" type="text" placeholder=" enter word" />
         </form>
-          <!-- <textarea ng-if="formCtrl.showResult" rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
-          <!-- <textarea rows="4" cols="50">{{formCtrl.secondResult}}</textarea><br/> -->
-
           <div ng-if= "formCtrl.showLoading" id="loading">
               <div id="loadingText_1" class="loadingText">l</div>
               <div id="loadingText_2" class="loadingText">o</div>
