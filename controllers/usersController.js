@@ -4,6 +4,9 @@ var router = express.Router();
 
 var Character = require('../models/character.js');
 
+var Favorite = require("../models/favorite.js");
+
+
 router.get("/", function(req, res){
 
   Character.find(function(err, data){
@@ -11,6 +14,7 @@ router.get("/", function(req, res){
     res.send(data);
     // console.log(data);
   });
+  
 
 
 });
@@ -19,7 +23,7 @@ router.get("/", function(req, res){
 
 router.post("/", function(req, res) {
 
-  
+
 
 
 

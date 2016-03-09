@@ -60,17 +60,21 @@
               <div id="fountainText_5" class="fountainText">t</div>
               <div id="fountainText_6" class="fountainText">e</div>
               <div id="fountainText_7" class="fountainText">r</div>
-            </div>
+          </div>
             <br/>
             <br/>
           <p class="graffiti" ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
 
           <button ng-if="formCtrl.showButton" ng-click="formCtrl.newResult()">get another</button>
           <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showButton">save to favorites</button> 
-
-            
       </section>
-
     </div>
+
+    <div id="favorites" ng-controller="FavoritesController as favCtrl">
+      <ul>
+        <li ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.body}}</li>
+      </ul>
+    </div>
+
   </body>
 </html>
