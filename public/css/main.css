@@ -5,7 +5,7 @@
 	font-family: arial;
 }
 
-html {
+body {
   background: url("/img/old-brick-wall.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
