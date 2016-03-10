@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Urban Yoda</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="http://piq.codeus.net/static/media/userpics/piq_246432_100x100.png">
     <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js" charset="utf-8"></script>
@@ -33,8 +34,8 @@
 
     <div>
       <section ng-if="profCtrl.showResult = true" ng-controller="ProfileController as profCtrl" id="welcome">
-        <h3>Welcome to Urban Yoda</h3>
-        <h4 id="about">about goes here</h4>
+        <h3>About Urban Yoda</h3>
+        <h4 id="about">Input a word or phrase and get the Urban Dictionary definition with a little help from our favorite Jedi Master. Pick your favorite Star Wars character and start speaking urban-yodish!</h4>
         <br/>
         <h3>your favorite character, you will select</h3>
         <select ng-change="profCtrl.hasChanged()" ng-model="profCtrl.myCharacter" ng-options="character.name for character in profCtrl.character">
@@ -45,7 +46,7 @@
       </section>
 
       <section ng-controller="FormController as formCtrl" id="translate">
-        <h3>get the UrbanYoda definition of a word</h3>
+        <h3>get the UrbanYoda definition</h3>
         <form ng-submit="formCtrl.yodafy()">
           <input name="word" ng-model="formCtrl.word" type="text" placeholder=" enter word" />
         </form>

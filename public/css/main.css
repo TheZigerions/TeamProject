@@ -14,7 +14,7 @@ body {
 }
 
 #welcome {
-	height: 214px;
+	height: auto;
 	width: 49%;
 	padding: 2em;
 	margin: 2em 4em;
@@ -24,7 +24,6 @@ body {
 	opacity: 0.8;
 	border-radius: 8px;
 	box-shadow: 5px 5px 2px #424242;
-	overflow: auto;
 	float:left;
 }
 
@@ -156,7 +155,7 @@ li {
 
 .loadingText{
 	color:rgb(0,0,0);
-	font-family:Arial;
+	font-family:arial;
 	font-size:20px;
 	text-decoration:none;
 	font-weight:normal;
@@ -317,7 +316,6 @@ li {
 
 	#translate {
 		width: 70%;
-		height: 275px;
 	}
 
 }
@@ -331,7 +329,7 @@ li {
 	}
 
 	#marquee {
-	 font-size: 1.5em;
+		font-size: 1.5em;
 	}
 
 	#character img {
@@ -340,15 +338,6 @@ li {
 
 	#about {
 		display: none;
-	}
-
-	#translate {
-		width: 70%;
-		height: 350px;
-	}
-
-	#loading {
-		margin: 0 33%;
 	}
 
 }
