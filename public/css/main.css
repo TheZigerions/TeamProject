@@ -27,6 +27,10 @@ body {
 	float:left;
 }
 
+.theme {
+	cursor: url("/img/lightsaber.png"), auto;
+}
+
 h3 {
 	margin: .25em;
 }
@@ -109,7 +113,7 @@ li {
 	list-style-type: none;
 	position: absolute;
 	height: 100%;
-	width: auto;	
+	width: auto;
 	margin: 0;
 	line-height: 50px;
 	text-align: center;
@@ -117,7 +121,7 @@ li {
 	-moz-transform:translateX(100%);
 	-webkit-transform:translateX(100%);
 	transform:translateX(100%);
-	 /*Apply animation to this element*/ 
+	 /*Apply animation to this element*/
 	-moz-animation: scroll-left 100s linear infinite;
 	-webkit-animation: scroll-left 100s linear infinite;
 	animation: scroll-left 100s linear infinite;
@@ -133,15 +137,15 @@ li {
 	100% { -webkit-transform: translateX(-100%); }
 	}
 @keyframes scroll-left {
-	0%   { 
-	-moz-transform: translateX(100%); /* Browser fix 
+	0%   {
+	-moz-transform: translateX(100%); /* Browser fix
 	-webkit-transform: translateX(100%); /* Browser fix */
-	transform: translateX(100%); 		
+	transform: translateX(100%);
 	}
- 	100% { 
+ 	100% {
 	-moz-transform: translateX(-100%); /* Browser fix */
 	-webkit-transform: translateX(-100%); /* Browser fix */
-	transform: translateX(-100%); 
+	transform: translateX(-100%);
 	}
 }
 
@@ -304,7 +308,7 @@ li {
 
 	#logo {
 		width: 80%;
-	}	
+	}
 
 	#character img {
 		float: none;

@@ -28,7 +28,7 @@
 
     <section id="character">
         <div>
-          <img ng-src="{{mainCtrl.myCharacter}}" ng-click="mainCtrl.playSound()"></img>
+          <img ng-class="{theme: hovered}" ng-src="{{mainCtrl.myCharacter}}" ng-click="mainCtrl.playSound()" ng-mouseover="hovered=true"></img>
         </div>
       </section>
 
