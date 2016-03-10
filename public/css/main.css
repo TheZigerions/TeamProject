@@ -44,6 +44,10 @@ input {
 
 select {
 	margin: 1em;
+	height: 2.5em;
+	width: 10em;
+	font-size: 1em;
+	text-align: center;
 	box-shadow: 5px 5px 2px #669900;
 }
 
@@ -54,7 +58,7 @@ select {
 }
 
 #translate {
-	height: 230px;
+	height: auto;
 	width: 49%;
 	padding: 2em;
 	margin: 2em 4em;
@@ -140,6 +144,7 @@ li {
 	-webkit-transform: translateX(-100%); /* Browser fix */
 	transform: translateX(-100%); 
 	}
+}
 
 /*****************LOADING ANIMATION********************/
 
@@ -182,7 +187,8 @@ li {
 		-ms-transform:scale(.5);
 		-webkit-transform:scale(.5);
 		-moz-transform:scale(.5);
-}#loadingText_1{
+}
+#loadingText_1{
 	animation-delay:0.75s;
 		-o-animation-delay:0.75s;
 		-ms-animation-delay:0.75s;

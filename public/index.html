@@ -21,16 +21,6 @@
 
     <div id="marquee" ng-controller="FavoritesController as favCtrl">
         <ul>
-          <!-- <li> one </li>
-          <li> two </li>
-          <li> three </li>
-          <li> four </li>
-          <li> five </li>
-          <li> six </li>
-          <li> seven </li>
-          <li> eight </li>
-          <li> nine </li>
-          <li> ten </li> -->
             <li class="graffiti" ng-repeat="favs in favCtrl.favorites | orderBy: 'dateCreated':true| limitTo: 5">{{favs.name}}: {{favs.body}}</li>
         </ul>
     </div>
@@ -48,7 +38,7 @@
         <br/>
         <h3>your favorite character, you will select</h3>
         <select ng-change="profCtrl.hasChanged()" ng-model="profCtrl.myCharacter" ng-options="character.name for character in profCtrl.character">
-          <option value="">---select---</option>
+          <option value="">-------select-------</option>
         </select>
         <!--  {{profCtrl.myCharacter.name}} -->
         <br/>
