@@ -13,19 +13,8 @@ body {
   background-size: cover;
 }
 
-div.marquee {
-    white-space:no-wrap;
-    overflow:hidden;
-}
-
-div.marquee > div.marquee-text {
-    white-space:nowrap;
-    display:inline;
-    width:auto;
-}
-
 #welcome {
-	height: 150px;
+	height: 214px;
 	width: 49%;
 	padding: 2em;
 	margin: 2em 4em;
@@ -75,7 +64,6 @@ select {
 	opacity: 0.8;
 	border-radius: 8px;
 	box-shadow: 5px 5px 2px #424242;
-	overflow:auto;
 	float:left;
 }
 
@@ -96,6 +84,62 @@ button {
 button:hover {
 	transform: scale(1.1);
 }
+
+/************************MARQUEE*********************/
+
+#marquee {
+	height: 50px;
+	overflow: hidden;
+	white-space: nowrap;
+	position: relative;
+	color: black;
+	font-size: 2em;
+}
+
+li {
+	display:inline;
+	margin: 0px 5px;
+}
+
+#marquee ul {
+	white-space:nowrap;
+	list-style-type: none;
+	position: absolute;
+	height: 100%;
+	width: auto;	
+	margin: 0;
+	line-height: 50px;
+	text-align: center;
+	 /*Starting position */
+	-moz-transform:translateX(100%);
+	-webkit-transform:translateX(100%);
+	transform:translateX(100%);
+	 /*Apply animation to this element*/ 
+	-moz-animation: scroll-left 100s linear infinite;
+	-webkit-animation: scroll-left 100s linear infinite;
+	animation: scroll-left 100s linear infinite;
+}
+
+/* ANIMATION*/
+@-moz-keyframes scroll-left {
+	0%   { -moz-transform: translateX(100%); }
+	100% { -moz-transform: translateX(-100%); }
+	}
+@-webkit-keyframes scroll-left {
+	0%   { -webkit-transform: translateX(100%); }
+	100% { -webkit-transform: translateX(-100%); }
+	}
+@keyframes scroll-left {
+	0%   { 
+	-moz-transform: translateX(100%); /* Browser fix 
+	-webkit-transform: translateX(100%); /* Browser fix */
+	transform: translateX(100%); 		
+	}
+ 	100% { 
+	-moz-transform: translateX(-100%); /* Browser fix */
+	-webkit-transform: translateX(-100%); /* Browser fix */
+	transform: translateX(-100%); 
+	}
 
 /*****************LOADING ANIMATION********************/
 
@@ -248,55 +292,7 @@ button:hover {
 	}
 }
 
-/************************MARQUEE*********************/
 
-#marquee {
-	 height: 50px;	
-	 overflow: hidden;
-	 position: relative;
-	 color: black;
-	 font-size: 2em;
-}
-
-#marquee ul {
-	list-style-type: none;
-	 position: absolute;
-	 width: 100%;
-	 height: 100%;
-	 margin: 0;
-	 line-height: 50px;
-	 text-align: center;
-	 /* Starting position */
-	 -moz-transform:translateX(100%);
-	 -webkit-transform:translateX(100%);	
-	 transform:translateX(100%);
-	 /* Apply animation to this element */	
-	 -moz-animation: scroll-left 25s linear infinite;
-	 -webkit-animation: scroll-left 25s linear infinite;
-	 animation: scroll-left 25s linear infinite;
-}
-
-/* Move it (define the animation) */
-@-moz-keyframes scroll-left {
-	 0%   { -moz-transform: translateX(100%); }
-	 100% { -moz-transform: translateX(-100%); }
-	}
-@-webkit-keyframes scroll-left {
-	 0%   { -webkit-transform: translateX(100%); }
-	 100% { -webkit-transform: translateX(-100%); }
-	}
-@keyframes scroll-left {
-	 0%   { 
-	 -moz-transform: translateX(100%); /* Browser fix */
-	 -webkit-transform: translateX(100%); /* Browser fix */
-	 transform: translateX(100%); 		
-	 }
- 	100% { 
-	 -moz-transform: translateX(-100%); /* Browser fix */
-	 -webkit-transform: translateX(-100%); /* Browser fix */
-	 transform: translateX(-100%); 
-	 }
-}
 /***************MEDIA QUERY FOR BIG TABLET (KINDA? GET'S WEIRD at 940px)***************/
 
 @media screen and (max-width: 940px){
@@ -319,7 +315,6 @@ button:hover {
 	}
 
 }
-
 
 /***************MEDIA QUERY FOR iPHONE***************/
 
