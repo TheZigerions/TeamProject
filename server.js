@@ -26,6 +26,7 @@ app.use(express.static('public'));
 // CONTROLLERS
 ////////////////////
 
+// ajax request to urban dictionary API with parameter passed from app.js
 app.get('/getdata/:id', function(req, res){
   request({
     url: 'https://mashape-community-urban-dictionary.p.mashape.com/define?term='+req.params.id,
@@ -39,6 +40,7 @@ app.get('/getdata/:id', function(req, res){
   });
 });
 
+// ajax request to yoda API using sentence parameter from app.js
 app.get('/getdata2/:id', function(req, res){
   request({
     url: 'https://yoda.p.mashape.com/yoda?sentence='+req.params.id,

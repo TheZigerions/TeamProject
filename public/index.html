@@ -7,10 +7,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="http://piq.codeus.net/static/media/userpics/piq_246432_100x100.png">
     <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" charset="utf-8"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt|Reenie+Beanie|Walter+Turncoat" rel="stylesheet" type="text/css">
-    <base href="/">
   </head>
 
   <body ng-controller="MainController as mainCtrl">
@@ -32,8 +30,9 @@
         </div>
       </section>
 
+      <!-- WELCOME BOX -->
     <div>
-      <section ng-if="profCtrl.showResult = true" ng-controller="ProfileController as profCtrl" id="welcome">
+      <section id="welcome" ng-if="profCtrl.showResult = true" ng-controller="ProfileController as profCtrl">
         <h3>About Urban Yoda</h3>
         <h4 id="about">Enter a word or phrase and get the Urban Dictionary definition with a little help from our favorite Jedi Master. Pick your favorite Star Wars character and start speaking Urban-Yodish!</h4>
         <br/>
@@ -41,11 +40,11 @@
         <select ng-change="profCtrl.hasChanged()" ng-model="profCtrl.myCharacter" ng-options="character.name for character in profCtrl.character">
           <option value="">-------select-------</option>
         </select>
-        <!--  {{profCtrl.myCharacter.name}} -->
         <br/>
       </section>
 
-      <section ng-controller="FormController as formCtrl" id="translate">
+      <!-- TRANSLATE BOX -->
+      <section id="translate" ng-controller="FormController as formCtrl">
         <h3>get the UrbanYoda definition</h3>
         <form ng-submit="formCtrl.yodafy()">
           <input name="word" ng-model="formCtrl.word" type="text" placeholder=" enter word" />
@@ -67,7 +66,6 @@
               <div id="loadingText_7" class="loadingText">r</div>
           </div>
           <br/>
-
 
           <br/>
           <p class="graffiti" ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>

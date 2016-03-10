@@ -9,12 +9,14 @@ app.controller("MainController",  ["$scope", function($scope){
     controller.myCharacter = data;
   });
 
+  // declare sound clips
   var audioYoda = new Audio('/sounds/900yearsold.mp3');
   var audioChew = new Audio('/sounds/chewy_roar.mp3');
   var audioVader = new Audio('/sounds/vader.mp3');
   var audioLeia = new Audio('/sounds/nerfherder.mp3');
   var audioR2 = new Audio('/sounds/R2D2-yeah.mp3');
 
+  // assign sound on click by image
   this.playSound = function(){
     if (this.myCharacter == 'http://vignette2.wikia.nocookie.net/disney/images/9/95/Master_Yoda.png/revision/latest?cb=20151112212224'){
       audioYoda.play();
@@ -33,17 +35,18 @@ app.controller("MainController",  ["$scope", function($scope){
 
 app.controller("ProfileController", ["$scope", "$http", function($scope, $http){
 
-  this.showWelcome = true;
   var controller = this;
 
   $http({
+    //grab characters from db 
     url: ("/characters"),
     method: "GET",
   }).then(
     function(response) {
       controller.character = response.data;
-      this.showWelcome = false;
+      //created function on change from select box
       controller.hasChanged = function(){
+        //emit image to mainController
         $scope.$emit("ImageSend", this.myCharacter.image);
       };
     },
@@ -56,13 +59,14 @@ app.controller("ProfileController", ["$scope", "$http", function($scope, $http){
 
 app.controller("FormController", ["$http", "$scope", function($http, $scope){
 
+  // variables to toggle display of buttons and results
   this.showResult = false;
   this.showDifButton = false;
   this.showFavButton = false;
   this.urbanResult = null;
   this.showLoading = false;
-  this.results = [];
-  this.theWord = null;
+  this.results = []; // -- storing urban dictionary results for recall on different definition of same word
+  this.theWord = null; // -- to define word entry to pass into favorites model
   var controller = this;
 
   var randomNum = function(min, max){
@@ -72,11 +76,14 @@ app.controller("FormController", ["$http", "$scope", function($http, $scope){
   this.yodafy = function(){
 
     controller.showLoading = true;
+    // declaring variable to pass through user entry as param in API call
     var text = this.word;
     controller.theWord = this.word;
 
+    // ajax request to server which accesses urban API
     $http.get("/getdata/"+text).then(
       function(response){
+        // bodyguard against word with no urban dictionary definition
         if (response.data.list.length < 1) {
           controller.showResult = true;
           controller.word = undefined;
@@ -85,18 +92,24 @@ app.controller("FormController", ["$http", "$scope", function($http, $scope){
           return controller.urbanResult = "Does not exist, this word. Error, you have made. Try again, you will."
         }
         var x = response.data.list.length;
-        controller.results = [];
+        controller.results = []; // -- reset array of definitions for new word
+        // loop to push definitions into results array
         for (var i=0; i < response.data.list.length; i++){
           controller.results.push(response.data.list[i].definition)
         }
+        // pull random definition
         var urban = response.data.list[(randomNum(1, x) - 1)].definition;
+        // ajax request to server with random definition that accesses yoda API
         $http.get("/getdata2/"+urban).then(
           function(result){
+            // set result and display it via angular
             controller.urbanResult = result.data;
             controller.showResult = true;
+            // display buttons
             controller.showDifButton = true;
             controller.showFavButton = true;
             controller.showLoading = false;
+            // clear form
             controller.word = undefined;
           },
           function(){
@@ -111,6 +124,7 @@ app.controller("FormController", ["$http", "$scope", function($http, $scope){
   }; // -- end yodafy function
 
   this.newResult = function(){
+    // accesses previously stored results array for new definition of same word
     var x = controller.results.length;
     var urban = controller.results[(randomNum(1, x) - 1)];
 
@@ -133,12 +147,14 @@ app.controller("FormController", ["$http", "$scope", function($http, $scope){
      $http({
        method: "POST",
        url: "/favorites/"+theWord+"/"+result,
+       //header is undefined because not parsing formdata
        headers: {'Content-Type': 'undefined'}
      })
      .then(
        function(response){
         controller.showFavButton = false;
-         $scope.$$prevSibling.favCtrl.favorites.push(response.data);
+        //pushing newest favorite to page without refresh
+        $scope.$$prevSibling.favCtrl.favorites.push(response.data);
        }, function(){
          console.log("error");
        }
@@ -150,7 +166,7 @@ app.controller("FormController", ["$http", "$scope", function($http, $scope){
 app.controller("FavoritesController", ["$http", function($http){
 
   var controller = this;
-
+  //ajax call to grab all favorited results | ordered and limited in html
   $http({
     method: "GET",
     url: "/favorites",

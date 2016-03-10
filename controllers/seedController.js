@@ -31,7 +31,7 @@ var newCharacter = [
 		}
 ];
 
-
+//Seed function a la Thom
 router.get('/', function(req, res) {
 	Character.create(newCharacter, function(err) {
 		if (err) {
@@ -43,6 +43,5 @@ router.get('/', function(req, res) {
 		}
 	});
 });
-
 
 module.exports = router;
