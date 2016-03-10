@@ -35,7 +35,7 @@
     <div>
       <section ng-if="profCtrl.showResult = true" ng-controller="ProfileController as profCtrl" id="welcome">
         <h3>About Urban Yoda</h3>
-        <h4 id="about">Input a word or phrase and get the Urban Dictionary definition with a little help from our favorite Jedi Master. Pick your favorite Star Wars character and start speaking urban-yodish!</h4>
+        <h4 id="about">Enter a word or phrase and get the Urban Dictionary definition with a little help from our favorite Jedi Master. Pick your favorite Star Wars character and start speaking Urban-Yodish!</h4>
         <br/>
         <h3>your favorite character, you will select</h3>
         <select ng-change="profCtrl.hasChanged()" ng-model="profCtrl.myCharacter" ng-options="character.name for character in profCtrl.character">

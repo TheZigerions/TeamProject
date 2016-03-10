@@ -52,14 +52,14 @@ app.get('/getdata2/:id', function(req, res){
   });
 });
 
-var usersController = require("./controllers/usersController.js");
-app.use("/users", usersController);
+var charactersController = require("./controllers/charactersController.js");
+app.use("/characters", charactersController);
 
-var seedController = require('./controllers/seedController');
-app.use('/seed', seedController);
+var seedController = require("./controllers/seedController");
+app.use("/seed", seedController);
 
-var favoriteController = require('./controllers/favoriteController');
-app.use('/favorites', favoriteController);
+var favoriteController = require("./controllers/favoriteController");
+app.use("/favorites", favoriteController);
 
 ////////////////////
 // LISTEN

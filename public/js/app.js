@@ -37,7 +37,7 @@ app.controller("ProfileController", ["$scope", "$http", function($scope, $http){
   var controller = this;
 
   $http({
-    url: ("/users"),
+    url: ("/characters"),
     method: "GET",
   }).then(
     function(response) {
