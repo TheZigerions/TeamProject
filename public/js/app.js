@@ -9,6 +9,26 @@ app.controller("MainController",  ["$scope", function($scope){
     controller.myCharacter = data;
   });
 
+  var audioYoda = new Audio('/sounds/900yearsold.mp3');
+  var audioChew = new Audio('/sounds/chewy_roar.mp3');
+  var audioVader = new Audio('/sounds/vader.mp3');
+  var audioLeia = new Audio('/sounds/nerfherder.mp3');
+  var audioR2 = new Audio('/sounds/R2D2-yeah.mp3');
+
+  this.playSound = function(){
+    if (this.myCharacter == 'http://vignette2.wikia.nocookie.net/disney/images/9/95/Master_Yoda.png/revision/latest?cb=20151112212224'){
+      audioYoda.play();
+    } else if (this.myCharacter == 'http://vignette3.wikia.nocookie.net/disney/images/d/da/TFA-Chewbacca-Fathead.png/revision/latest?cb=20160207022126'){
+      audioChew.play();
+    } else if (this.myCharacter == 'http://vignette3.wikia.nocookie.net/disney/images/d/df/Darth_Vader_Render.png/revision/latest?cb=20151222170300'){
+      audioVader.play();
+    } else if (this.myCharacter == 'http://vignette4.wikia.nocookie.net/disney/images/7/7f/Princess_Leia_render.png/revision/latest?cb=20151220170346'){
+      audioLeia.play();
+    } else if (this.myCharacter == 'http://vignette3.wikia.nocookie.net/disney/images/7/7c/R2-D2_Render.png/revision/latest?cb=20130314222826'){
+      audioR2.play();
+    };
+  }; // -- end playSound function
+
 }]); // -- end MainController
 
 app.controller("ProfileController", ["$scope", "$http", function($scope, $http){
