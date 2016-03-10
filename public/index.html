@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
-    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt|Reenie+Beanie|Walter+Turncoat' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt|Reenie+Beanie|Walter+Turncoat" rel="stylesheet" type="text/css">
     <base href="/">
   </head>
 
@@ -71,8 +71,8 @@
           <br/>
           <p class="graffiti" ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
           <br/>
-          <button ng-if="formCtrl.showButton" ng-click="formCtrl.newResult()">this definition sucks, get another</button>
-          <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showButton">this is sick, save it</button> 
+          <button ng-if="formCtrl.showDifButton" ng-click="formCtrl.newResult()">this definition sucks, get another</button>
+          <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showFavButton">this is sick, save it</button>
       </section>
     </div>
 
