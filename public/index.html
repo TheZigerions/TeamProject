@@ -13,6 +13,8 @@
 
   <body ng-controller="MainController as mainCtrl">
 
+  <div id="main">
+
     <header>
       <img id="logo" src=/img/urbanyoda_logo.png>
       <br/>
@@ -24,61 +26,59 @@
         </ul>
     </div>
 
-    <section id="character">
-        <div>
-          <img ng-class="{theme: hovered}" ng-src="{{mainCtrl.myCharacter}}" ng-click="mainCtrl.playSound()" ng-mouseover="hovered=true"></img>
-        </div>
-      </section>
-
-      <!-- WELCOME BOX -->
-    <div>
-      <section id="welcome" ng-if="profCtrl.showResult = true" ng-controller="ProfileController as profCtrl">
-        <h3>About Urban Yoda</h3>
-        <h4 id="about">Enter a word or phrase and get the Urban Dictionary definition with a little help from our favorite Jedi Master. Pick your favorite Star Wars character and start speaking Urban-Yodish! Save your favorite definitions to see them scroll across the top!</h4>
-        <br/>
-        <h3>your favorite character, you will select</h3>
-        <select ng-change="profCtrl.hasChanged()" ng-model="profCtrl.myCharacter" ng-options="character.name for character in profCtrl.character">
-          <option value="">-------select-------</option>
-        </select>
-        <br/>
-      </section>
-
-      <!-- TRANSLATE BOX -->
-      <section id="translate" ng-controller="FormController as formCtrl">
-        <h3>get the UrbanYoda definition</h3>
-        <form ng-submit="formCtrl.yodafy()">
-          <input name="word" ng-model="formCtrl.word" type="text" placeholder=" enter word" />
-        </form>
-          <div ng-if= "formCtrl.showLoading" id="loading">
-              <div id="loadingText_1" class="loadingText">l</div>
-              <div id="loadingText_2" class="loadingText">o</div>
-              <div id="loadingText_3" class="loadingText">a</div>
-              <div id="loadingText_4" class="loadingText">d</div>
-              <div id="loadingText_5" class="loadingText">i</div>
-              <div id="loadingText_6" class="loadingText">n</div>
-              <div id="loadingText_7" class="loadingText">g</div>
-              <div id="loadingText_1" class="loadingText">, </div>
-              <div id="loadingText_2" class="loadingText">m</div>
-              <div id="loadingText_3" class="loadingText">a</div>
-              <div id="loadingText_4" class="loadingText">s</div>
-              <div id="loadingText_5" class="loadingText">t</div>
-              <div id="loadingText_6" class="loadingText">e</div>
-              <div id="loadingText_7" class="loadingText">r</div>
+      <section id="character">
+          <div>
+            <img ng-class="{theme: hovered}" ng-src="{{mainCtrl.myCharacter}}" ng-click="mainCtrl.playSound()" ng-mouseover="hovered=true"></img>
           </div>
-          <br/>
+        </section>
 
+        <!-- WELCOME BOX -->
+        <section id="welcome" ng-if="profCtrl.showResult = true" ng-controller="ProfileController as profCtrl">
+          <h3>Welcome to Urban Yoda</h3>
+          <h4 id="about">Enter a word or phrase and get the Urban Dictionary definition with a little help from our favorite Jedi Master. Pick your favorite Star Wars character and start speaking Urban-Yodish! Save your favorite definitions to see them scroll across the top!</h4>
           <br/>
-          <p class="graffiti" ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
+          <h3>your favorite character, you will select</h3>
+          <select ng-change="profCtrl.hasChanged()" ng-model="profCtrl.myCharacter" ng-options="character.name for character in profCtrl.character">
+            <option value="">-------select-------</option>
+          </select>
           <br/>
-          <button ng-if="formCtrl.showDifButton" ng-click="formCtrl.newResult()">this definition sucks, get another</button>
-          <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showFavButton">this is sick, save it</button>
-      </section>    
+        </section>
+
+        <!-- TRANSLATE BOX -->
+        <section id="translate" ng-controller="FormController as formCtrl">
+          <h3>get the UrbanYoda definition</h3>
+          <form ng-submit="formCtrl.yodafy()">
+            <input name="word" ng-model="formCtrl.word" type="text" placeholder=" enter word" />
+          </form>
+            <div ng-if= "formCtrl.showLoading" id="loading">
+                <div id="loadingText_1" class="loadingText">l</div>
+                <div id="loadingText_2" class="loadingText">o</div>
+                <div id="loadingText_3" class="loadingText">a</div>
+                <div id="loadingText_4" class="loadingText">d</div>
+                <div id="loadingText_5" class="loadingText">i</div>
+                <div id="loadingText_6" class="loadingText">n</div>
+                <div id="loadingText_7" class="loadingText">g</div>
+                <div id="loadingText_1" class="loadingText">, </div>
+                <div id="loadingText_2" class="loadingText">m</div>
+                <div id="loadingText_3" class="loadingText">a</div>
+                <div id="loadingText_4" class="loadingText">s</div>
+                <div id="loadingText_5" class="loadingText">t</div>
+                <div id="loadingText_6" class="loadingText">e</div>
+                <div id="loadingText_7" class="loadingText">r</div>
+            </div>
+            <br/>
+
+            <br/>
+            <p class="graffiti" ng-if="formCtrl.showResult">{{formCtrl.urbanResult}}</p>
+            <br/>
+            <button ng-if="formCtrl.showDifButton" ng-click="formCtrl.newResult()">this definition sucks, get another</button>
+            <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showFavButton">this is sick, save it</button>
+        </section>    
+      <br/>
+      <br/>
     </div>
-    <br/>
-    <br/>
     <footer id="credits">
-      <p>Created by Master Derek Fludzinski, Master Jordan Zapata, and Master Pauline Hilborn. </p>
-      <p>Special thanks to <a href="https://market.mashape.com/community/urban-dictionary">Urban Dictionary</a> and <a href="https://market.mashape.com/ismaelc/yoda-speak">Yoda Speak</a>.</p>
+      <p>Created by Derek Fludzinski, Jordan Zapata, and Pauline Hilborn. Special thanks to <a href="https://market.mashape.com/community/urban-dictionary">Urban Dictionary</a> and <a href="https://market.mashape.com/ismaelc/yoda-speak">Yoda Speak</a>.</p>
     </footer>
 
   </body>

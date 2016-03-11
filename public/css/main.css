@@ -11,6 +11,12 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height: 100%;
+}
+
+#main {
+	overflow:auto;
+  	padding-bottom: 40px; /* must be same height as the footer */
 }
 
 #welcome {
@@ -93,10 +99,12 @@ button:hover {
 }
 
 footer {
+	position: relative;
+  	margin-top: -40px; /* negative value of footer height */
+  	height: 40px;
+  	clear:both;
 	width: 100%;
-	margin: 0 5%;
-	bottom: fixed;
-	font-weight: bold;
+	color: white;
 }
 
 /************************MARQUEE*********************/
@@ -325,10 +333,14 @@ li {
 
 	#welcome {
 		width: 70%;
+		float:none;
+		padding: 0;
 	}
 
 	#translate {
 		width: 70%;
+		float:none;
+		padding: 0;
 	}
 
 }
