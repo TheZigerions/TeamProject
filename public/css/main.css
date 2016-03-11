@@ -92,6 +92,13 @@ button:hover {
 	transform: scale(1.1);
 }
 
+footer {
+	width: 100%;
+	margin: 0 5%;
+	bottom: fixed;
+	font-weight: bold;
+}
+
 /************************MARQUEE*********************/
 
 #marquee {
@@ -148,6 +155,8 @@ li {
 	transform: translateX(-100%);
 	}
 }
+
+
 
 /*****************LOADING ANIMATION********************/
 

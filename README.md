@@ -6,7 +6,7 @@
 
 This is a single-page 2-model app that utilizes API's to translate a user's inputed word into urban-yoda speak. The word is translated by Urban Dictionary, then Yoda Translator.
 
-- [Urban Dictionary API](https://market.mashape.com/ismaelc/yoda-speak)
+- [Urban Dictionary API](https://market.mashape.com/community/urban-dictionary)
 
 - [Yoda Speak API](https://market.mashape.com/ismaelc/yoda-speak)
 

@@ -34,7 +34,7 @@
     <div>
       <section id="welcome" ng-if="profCtrl.showResult = true" ng-controller="ProfileController as profCtrl">
         <h3>About Urban Yoda</h3>
-        <h4 id="about">Enter a word or phrase and get the Urban Dictionary definition with a little help from our favorite Jedi Master. Pick your favorite Star Wars character and start speaking Urban-Yodish!</h4>
+        <h4 id="about">Enter a word or phrase and get the Urban Dictionary definition with a little help from our favorite Jedi Master. Pick your favorite Star Wars character and start speaking Urban-Yodish! Save your favorite definitions to see them scroll across the top!</h4>
         <br/>
         <h3>your favorite character, you will select</h3>
         <select ng-change="profCtrl.hasChanged()" ng-model="profCtrl.myCharacter" ng-options="character.name for character in profCtrl.character">
@@ -72,8 +72,14 @@
           <br/>
           <button ng-if="formCtrl.showDifButton" ng-click="formCtrl.newResult()">this definition sucks, get another</button>
           <button name="formCtrl.body" ng-click="formCtrl.saveFavorites()" ng-if="formCtrl.showFavButton">this is sick, save it</button>
-      </section>
+      </section>    
     </div>
+    <br/>
+    <br/>
+    <footer id="credits">
+      <p>Created by Master Derek Fludzinski, Master Jordan Zapata, and Master Pauline Hilborn. </p>
+      <p>Special thanks to <a href="https://market.mashape.com/community/urban-dictionary">Urban Dictionary</a> and <a href="https://market.mashape.com/ismaelc/yoda-speak">Yoda Speak</a>.</p>
+    </footer>
 
   </body>
 </html>
